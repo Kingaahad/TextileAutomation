@@ -18,6 +18,7 @@ from flask import Flask, request, jsonify
 def preprocess_data(data, target_col):
     X = data.drop(columns=[target_col])
     y = data[target_col]
+    
     # Feature Engineering: Add Polynomial Features
     poly = PolynomialFeatures(degree=2, include_bias=False)
     X_poly = poly.fit_transform(X)
